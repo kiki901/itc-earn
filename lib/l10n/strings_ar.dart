@@ -304,10 +304,10 @@ const Map<String, String> arStrings = {
 
   // Lucky Wheel
   'luckyWheel': '🎡 عجلة الحظ',
-  'spinNow': 'دور الآن!',
-  'spinning': 'جاري الدوران...',
+  'spinNow': 'جرب حظك!',
+  'spinning': 'جاري السحب...',
   'wheelAvailable': 'متاح الآن!',
-  'wheelCooldown': 'العجلة متاح خلال',
+  'wheelCooldown': 'الجائزة متاحة خلال',
   'wheelCongrats': 'مبروك!',
   'youGot': 'حصلت على',
   'nextWheel': 'العجلة التالية خلال',
@@ -325,7 +325,7 @@ const Map<String, String> arStrings = {
   'balanceLabel': 'الرصيد',
 
   // Lucky Wheel (additional)
-  'wheelAvailableInHours': 'العجلة متاح خلال',
+  'wheelAvailableInHours': 'الجائزة متاحة خلال',
   'hours': 'ساعة',
   'minutes': 'دقيقة',
   'congratulations': 'مبروك!',
@@ -333,10 +333,10 @@ const Map<String, String> arStrings = {
   'doubleProfit': 'مضاعفة الربح',
   'freeSpin': 'دورة مجانية إضافية',
   'wheelAvailableNow': 'متاح الآن!',
-  'spin': 'دوران!',
-  'wheelTitle': '🎡 عجلة الحظ',
-  'buySpinAgain': '🔄 اشترِ دورة بـ 2 ITC',
-  'confirmBuySpin': 'هل تريد شراء دورة بـ 2 ITC؟',
+  'spin': 'اسحب!',
+  'wheelTitle': '🎡 جائزة يومية',
+  'buySpinAgain': '🔄 جولة إضافية بـ 2 ITC',
+  'confirmBuySpin': 'هل تريد جولة إضافية بـ 2 ITC؟',
   'insufficientBalanceForSpin': 'رصيدك غير كافٍ (تحتاج 2 ITC)',
   'adBannerPlaceholder': 'مساحة إعلانية',
   'adBannerComingSoon': 'إعلانات قادمة قريباً',

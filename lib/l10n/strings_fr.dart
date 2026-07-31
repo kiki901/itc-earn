@@ -304,10 +304,10 @@ const Map<String, String> frStrings = {
 
   // Lucky Wheel
   'luckyWheel': '🎡 Roue de la Fortune',
-  'spinNow': 'Tourner!',
+  'spinNow': 'Tentez votre chance!',
   'spinning': 'En train de tourner...',
   'wheelAvailable': 'Disponible maintenant!',
-  'wheelCooldown': 'Roue disponible dans',
+  'wheelCooldown': 'Prix disponible dans',
   'wheelCongrats': 'Félicitations!',
   'youGot': 'Vous avez obtenu',
   'nextWheel': 'Prochaine roue dans',
@@ -325,7 +325,7 @@ const Map<String, String> frStrings = {
   'balanceLabel': 'Solde',
 
   // Lucky Wheel (additional)
-  'wheelAvailableInHours': 'Roue disponible dans',
+  'wheelAvailableInHours': 'Prix disponible dans',
   'hours': 'heures',
   'minutes': 'minutes',
   'congratulations': 'Félicitations!',
@@ -333,10 +333,10 @@ const Map<String, String> frStrings = {
   'doubleProfit': 'Double profit',
   'freeSpin': 'Tour gratuit!',
   'wheelAvailableNow': 'Disponible maintenant!',
-  'spin': 'Tourner!',
-  'wheelTitle': '🎡 Roue de la Fortune',
-  'buySpinAgain': '🔄 Acheter un tour pour 2 ITC',
-  'confirmBuySpin': 'Acheter un tour pour 2 ITC ?',
+  'spin': 'Tentez!',
+  'wheelTitle': '🎡 Prix Quotidien',
+  'buySpinAgain': '🔄 Tour supplémentaire pour 2 ITC',
+  'confirmBuySpin': 'Obtenir un tour supplémentaire pour 2 ITC?',
   'insufficientBalanceForSpin': 'Solde insuffisant (2 ITC requis)',
   'adBannerPlaceholder': 'Espace publicitaire',
   'adBannerComingSoon': 'Publicités bientôt disponibles',

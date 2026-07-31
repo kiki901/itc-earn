@@ -28,7 +28,7 @@ class DemoService {
   static const String _keyPrefixAnimals = 'animals_';
   static const String _keyPrefixStakings = 'stakings_';
   static const String _keyPrefixGiftBox = 'giftbox_last_claimed_';
-  static const String _keyPrefixWheel = 'wheel_last_spin_';
+  static const String _keyPrefixWheel = 'daily_prize_last_';
   static const String _keyBuySellRequests = 'buy_sell_requests';
   static const String _keyAdminUsdBalance = 'admin_usd_balance';
 
@@ -153,15 +153,15 @@ class DemoService {
           itcBalance: _currentUser!.itcBalance + prizeValue,
           totalEarned: _currentUser!.totalEarned + prizeValue,
         );
-        _addTransaction('earn', prizeValue, 'عجلة الحظ - ${prizeValue.toInt()} ITC');
+        _addTransaction('earn', prizeValue, 'جائزة يومية - ${prizeValue.toInt()} ITC');
         break;
-      case 'jackpot':
+      case 'topprize':
         await _prefs?.setString('$_keyPrefixWheel${_currentUser!.uid}', DateTime.now().toIso8601String());
         _currentUser = _currentUser!.copyWith(
           itcBalance: _currentUser!.itcBalance + prizeValue,
           totalEarned: _currentUser!.totalEarned + prizeValue,
         );
-        _addTransaction('earn', prizeValue, 'عجلة الحظ - Jackpot ${prizeValue.toInt()} ITC');
+        _addTransaction('earn', prizeValue, 'جائزة يومية - مكافأة كبرى ${prizeValue.toInt()} ITC');
         break;
       case 'boost':
         await _prefs?.setString('$_keyPrefixWheel${_currentUser!.uid}', DateTime.now().toIso8601String());
@@ -169,10 +169,10 @@ class DemoService {
           itcBalance: _currentUser!.itcBalance + prizeValue,
           totalEarned: _currentUser!.totalEarned + prizeValue,
         );
-        _addTransaction('earn', prizeValue, 'عجلة الحظ - مكافأة بوست');
+        _addTransaction('earn', prizeValue, 'جائزة يومية - مكافأة بوست');
         break;
-      case 'freespin':
-        _addTransaction('earn', 0, 'عجلة الحظ - دورة مجانية إضافية');
+      case 'freeroll':
+        _addTransaction('earn', 0, 'جائزة يومية - دورة مجانية إضافية');
         break;
     }
 
@@ -334,31 +334,31 @@ class DemoService {
     _currentUser = _currentUser!.copyWith(
       itcBalance: _currentUser!.itcBalance - AppConstants.wheelPaidSpinCost,
     );
-    _addTransaction('spend', AppConstants.wheelPaidSpinCost.toDouble(), 'شراء دورة عجلة الحظ');
+    _addTransaction('spend', AppConstants.wheelPaidSpinCost.toDouble(), 'شراء جولة إضافية');
 
     final random = Random.secure();
     final List<Map<String, dynamic>> prizes = [
       {'type': 'itc', 'value': 2.0},
       {'type': 'itc', 'value': 3.0},
       {'type': 'itc', 'value': 5.0},
-      {'type': 'freespin', 'value': 0.0},
+      {'type': 'freeroll', 'value': 0.0},
       {'type': 'itc', 'value': 4.0},
-      {'type': 'jackpot', 'value': 5.0},
+      {'type': 'topprize', 'value': 5.0},
     ];
     final prize = prizes[random.nextInt(prizes.length)];
 
     switch (prize['type']) {
       case 'itc':
-      case 'jackpot':
+      case 'topprize':
         final double value = prize['value'] as double;
         _currentUser = _currentUser!.copyWith(
           itcBalance: _currentUser!.itcBalance + value,
           totalEarned: _currentUser!.totalEarned + value,
         );
-        _addTransaction('earn', value, 'عجلة الحظ (مدفوعة) - ${value.toInt()} ITC');
+        _addTransaction('earn', value, 'جائزة يومية (مدفوعة) - ${value.toInt()} ITC');
         break;
-      case 'freespin':
-        _addTransaction('earn', 0, 'عجلة الحظ (مدفوعة) - دورة مجانية إضافية');
+      case 'freeroll':
+        _addTransaction('earn', 0, 'جائزة يومية (مدفوعة) - دورة مجانية إضافية');
         break;
     }
 

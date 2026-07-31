@@ -25,10 +25,10 @@ class _LuckyWheelScreenState extends State<LuckyWheelScreen>
   final List<Map<String, dynamic>> _prizes = [
     {'label': '1', 'color': Color(0xFF1A237E), 'icon': '💰', 'type': 'itc', 'value': 1.0},
     {'label': '2', 'color': Color(0xFF7C4DFF), 'icon': '💰', 'type': 'itc', 'value': 2.0},
-    {'label': '🔄', 'color': Color(0xFFFF6B6B), 'icon': '🔄', 'type': 'freespin', 'value': 0},
+    {'label': '🔄', 'color': Color(0xFFFF6B6B), 'icon': '🔄', 'type': 'freeroll', 'value': 0},
     {'label': '3', 'color': Color(0xFF00E5FF), 'icon': '💰', 'type': 'itc', 'value': 3.0},
     {'label': '4', 'color': Color(0xFFFFD700), 'icon': '💰', 'type': 'itc', 'value': 4.0},
-    {'label': '5', 'color': Color(0xFF00E676), 'icon': '🏆', 'type': 'jackpot', 'value': 5.0},
+    {'label': '5', 'color': Color(0xFF00E676), 'icon': '🏆', 'type': 'topprize', 'value': 5.0},
   ];
 
   @override
@@ -131,10 +131,10 @@ class _LuckyWheelScreenState extends State<LuckyWheelScreen>
     }
 
     int prizeIndex = -1;
-    if (result['type'] == 'freespin') {
-      prizeIndex = _prizes.indexWhere((p) => p['type'] == 'freespin');
-    } else if (result['type'] == 'jackpot') {
-      prizeIndex = _prizes.indexWhere((p) => p['type'] == 'jackpot');
+    if (result['type'] == 'freeroll') {
+      prizeIndex = _prizes.indexWhere((p) => p['type'] == 'freeroll');
+    } else if (result['type'] == 'topprize') {
+      prizeIndex = _prizes.indexWhere((p) => p['type'] == 'topprize');
     } else {
       final itcIndices = [0, 1, 3, 4];
       prizeIndex = itcIndices[Random().nextInt(itcIndices.length)];
@@ -219,7 +219,7 @@ class _LuckyWheelScreenState extends State<LuckyWheelScreen>
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Text(
-                  prize['type'] == 'itc' || prize['type'] == 'jackpot'
+                  prize['type'] == 'itc' || prize['type'] == 'topprize'
                       ? '+${prize['value']} ITC'
                       : loc.freeSpin,
                   style: TextStyle(
@@ -296,7 +296,7 @@ class _LuckyWheelScreenState extends State<LuckyWheelScreen>
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Text(
-                  prize['type'] == 'itc' || prize['type'] == 'jackpot'
+                  prize['type'] == 'itc' || prize['type'] == 'topprize'
                       ? '+${prize['value']} ITC'
                       : loc.freeSpin,
                   style: TextStyle(
