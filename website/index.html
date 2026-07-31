@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ITC Earn — Official APK Download</title>
+    <meta name="description" content="Download ITC Earn APK. Earn ITC tokens daily through tasks, staking, and investments. Buy & sell ITC for real money." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪙</text></svg>" />
+    <meta property="og:title" content="ITC Earn — Official APK Download" />
+    <meta property="og:description" content="Earn ITC tokens daily. Tasks, staking, marketplace, and more." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ITC Earn — Official APK Download" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --bg:#0a0e1a;--bg2:#111827;--bg3:#1a2035;
+            --border:rgba(255,255,255,0.07);
+            --gold:#FFD700;--gold2:#FFC107;--gold3:#FFAB00;
+            --blue:#1A237E;--purple:#7C4DFF;
+            --primary:#FFD700;--accent:#FFC107;
+            --text:#fff;--text2:#9CA3AF;--text3:#6B7280;
+            --success:#10B981;--danger:#EF4444;--warning:#F59E0B;
+            --r:16px;--r2:12px;--r3:24px;
+            --shadow:0 20px 60px rgba(0,0,0,0.5);
+            --glow:0 0 40px rgba(255,215,0,0.15);
+            --t:0.4s cubic-bezier(0.22,1,0.36,1);
+        }
+        html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+        a{color:inherit;text-decoration:none;transition:color var(--t)}
+        img{max-width:100%;display:block}
+        .container{max-width:1200px;margin:0 auto;padding:0 24px}
+        ::-webkit-scrollbar{width:6px}
+        ::-webkit-scrollbar-track{background:var(--bg)}
+        ::-webkit-scrollbar-thumb{background:var(--gold);border-radius:10px}
+
+        #scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--purple));z-index:9999;width:0%;transition:width 0.1s;box-shadow:0 0 20px rgba(255,215,0,0.4)}
+
+        .text-gradient{background:linear-gradient(135deg,var(--gold),var(--gold2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+        .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 36px;font-weight:600;font-size:1rem;border:none;border-radius:60px;cursor:pointer;transition:all var(--t);letter-spacing:0.3px}
+        .btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#000;box-shadow:0 8px 30px rgba(255,215,0,0.3)}
+        .btn-gold:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 12px 40px rgba(255,215,0,0.5)}
+        .btn-outline{background:rgba(255,255,255,0.06);color:var(--text);border:1px solid var(--border);backdrop-filter:blur(4px)}
+        .btn-outline:hover{background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.2);transform:translateY(-2px)}
+        .btn-sm{padding:10px 24px;font-size:0.9rem}
+        .btn-success{background:linear-gradient(135deg,var(--success),#059669);color:#fff}
+        .btn-success:hover{box-shadow:0 12px 40px rgba(16,185,129,0.5)}
+
+        .tag{display:inline-block;font-size:0.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);background:rgba(255,215,0,0.1);padding:4px 16px;border-radius:60px;margin-bottom:12px;border:1px solid rgba(255,215,0,0.15)}
+        .section-title{font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.15;letter-spacing:-0.03em;margin-bottom:16px}
+        .section-sub{font-size:1.05rem;color:var(--text2);max-width:560px;line-height:1.7}
+
+        /* Lang Toggle */
+        .lang-toggle{position:fixed;top:80px;right:20px;z-index:10000;display:flex;background:var(--bg2);border:1px solid var(--border);border-radius:30px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.4)}
+        .lang-btn{padding:8px 16px;font-size:0.8rem;font-weight:600;border:none;background:transparent;color:var(--text2);cursor:pointer;transition:all var(--t)}
+        .lang-btn.active{background:var(--gold);color:#000}
+
+        /* Header */
+        .header{position:sticky;top:0;z-index:1000;background:rgba(10,14,26,0.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+        .header-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+        .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.35rem}
+        .logo-icon{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--gold),var(--gold2));display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:900;color:#000;box-shadow:0 4px 20px rgba(255,215,0,0.3)}
+        .nav{display:flex;align-items:center;gap:4px}
+        .nav a{padding:6px 14px;font-size:0.88rem;font-weight:500;color:var(--text2);border-radius:40px;transition:all var(--t)}
+        .nav a:hover,.nav a.active{color:var(--text);background:rgba(255,255,255,0.06)}
+        .nav .btn-download-nav{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#000 !important;padding:8px 22px;border-radius:60px;font-weight:700;box-shadow:0 4px 20px rgba(255,215,0,0.3)}
+        .nav .btn-download-nav:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,215,0,0.4)}
+        .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:transparent;border:none}
+        .nav-toggle span{width:26px;height:2.5px;background:var(--text);border-radius:4px;transition:all var(--t)}
+
+        /* Hero */
+        .hero{padding:60px 0 80px;position:relative;overflow:hidden}
+        .hero::before{content:'';position:absolute;top:-40%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(255,215,0,0.06) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+        .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
+        .hero-content{display:flex;flex-direction:column;gap:20px}
+        .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.2);padding:6px 18px 6px 12px;border-radius:60px;font-size:0.8rem;font-weight:600;color:var(--success);width:fit-content}
+        .hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--success);animation:pulse-dot 2s ease-in-out infinite}
+        @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.8)}}
+        .hero h1{font-size:clamp(2.6rem,5.5vw,4rem);font-weight:900;line-height:1.05;letter-spacing:-0.04em}
+        .hero p{font-size:1.1rem;color:var(--text2);max-width:480px;line-height:1.8}
+        .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-top:8px}
+        .hero-meta{display:flex;flex-wrap:wrap;gap:20px;margin-top:8px;font-size:0.85rem;color:var(--text2)}
+        .hero-meta span{display:flex;align-items:center;gap:6px}
+        .hero-meta .label{color:var(--text2)}
+        .hero-meta .value{color:var(--text);font-weight:700}
+
+        .hero-mockup{display:flex;justify-content:center;align-items:center;position:relative}
+        .mockup-phone{width:280px;height:560px;background:var(--bg2);border-radius:40px;border:2px solid var(--border);padding:16px;box-shadow:0 40px 80px rgba(0,0,0,0.6),var(--glow);position:relative;animation:float-phone 6s ease-in-out infinite;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+        @keyframes float-phone{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+        .mockup-phone .screen{width:100%;height:100%;background:radial-gradient(ellipse at center,#1a2035,#0a0e1a);border-radius:28px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px}
+        .mockup-phone .screen .app-icon{width:72px;height:72px;border-radius:18px;background:linear-gradient(135deg,var(--gold),var(--gold2));display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:900;color:#000;box-shadow:0 8px 30px rgba(255,215,0,0.3)}
+        .mockup-phone .screen h3{font-size:1.4rem;font-weight:700}
+        .mockup-phone .screen p{font-size:0.8rem;color:var(--text2);max-width:180px}
+        .mockup-phone .screen .badge-apk{background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.2);padding:4px 16px;border-radius:60px;font-size:0.7rem;font-weight:600;color:var(--success)}
+        .mockup-glow{position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(255,215,0,0.1),transparent 70%);z-index:-1;animation:glow-pulse 4s ease-in-out infinite}
+        @keyframes glow-pulse{0%,100%{transform:scale(1);opacity:0.6}50%{transform:scale(1.2);opacity:1}}
+
+        /* Features */
+        .features{padding:80px 0 100px}
+        .features-header{text-align:center;margin-bottom:56px}
+        .features-header .section-sub{margin:0 auto}
+        .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+        .feature-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:28px 24px;transition:all var(--t);position:relative;overflow:hidden}
+        .feature-card:hover{transform:translateY(-6px);border-color:rgba(255,215,0,0.25);box-shadow:0 20px 50px rgba(0,0,0,0.4)}
+        .feature-card .icon{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:14px;background:rgba(255,215,0,0.08);border:1px solid rgba(255,215,0,0.1)}
+        .feature-card:hover .icon{background:rgba(255,215,0,0.15);transform:scale(1.05)}
+        .feature-card h3{font-size:1.05rem;font-weight:700;margin-bottom:6px}
+        .feature-card p{font-size:0.88rem;color:var(--text2);line-height:1.6}
+
+        /* Roadmap */
+        .roadmap{padding:80px 0 100px;background:linear-gradient(180deg,transparent,rgba(255,215,0,0.02),transparent)}
+        .roadmap-header{text-align:center;margin-bottom:56px}
+        .roadmap-header .section-sub{margin:0 auto}
+        .roadmap-timeline{position:relative;max-width:800px;margin:0 auto}
+        .roadmap-line{position:absolute;left:50%;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--gold),var(--purple),var(--gold));transform:translateX(-50%);border-radius:2px}
+        .roadmap-item{display:flex;align-items:flex-start;margin-bottom:40px;position:relative}
+        .roadmap-item:nth-child(odd){flex-direction:row-reverse;text-align:right}
+        .roadmap-item:nth-child(odd) .roadmap-content{margin-right:40px}
+        .roadmap-item:nth-child(even) .roadmap-content{margin-left:40px}
+        .roadmap-dot{position:absolute;left:50%;transform:translateX(-50%);width:20px;height:20px;border-radius:50%;background:var(--gold);border:3px solid var(--bg);z-index:2;box-shadow:0 0 20px rgba(255,215,0,0.4)}
+        .roadmap-dot.done{background:var(--success)}
+        .roadmap-dot.active{background:var(--gold);animation:pulse-dot 2s infinite}
+        .roadmap-dot.pending{background:var(--text3)}
+        .roadmap-content{width:calc(50% - 40px);background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:24px}
+        .roadmap-content h4{font-size:1rem;font-weight:700;color:var(--gold);margin-bottom:6px}
+        .roadmap-content .date{font-size:0.75rem;color:var(--text3);margin-bottom:8px}
+        .roadmap-content ul{list-style:none;padding:0}
+        .roadmap-content li{font-size:0.88rem;color:var(--text2);padding:3px 0;position:relative;padding-left:16px}
+        .roadmap-content li::before{content:'▸';position:absolute;left:0;color:var(--gold)}
+
+        /* Tokenomics */
+        .tokenomics{padding:80px 0 100px}
+        .tokenomics-header{text-align:center;margin-bottom:56px}
+        .tokenomics-header .section-sub{margin:0 auto}
+        .tokenomics-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+        .token-chart{position:relative;width:300px;height:300px;margin:0 auto}
+        .token-ring{width:100%;height:100%;border-radius:50%;background:conic-gradient(var(--gold) 0% 35%,var(--purple) 35% 50%,var(--success) 50% 65%,#3B82F6 65% 80%,#EF4444 80% 90%,var(--text3) 90% 100%);display:flex;align-items:center;justify-content:center;animation:rotate-ring 20s linear infinite}
+        @keyframes rotate-ring{to{transform:rotate(360deg)}}
+        .token-center{width:140px;height:140px;border-radius:50%;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;z-index:2}
+        .token-center .total{font-size:1.5rem;font-weight:900;color:var(--gold)}
+        .token-center .label{font-size:0.7rem;color:var(--text2)}
+        .token-legend{display:flex;flex-direction:column;gap:12px}
+        .legend-item{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2)}
+        .legend-dot{width:14px;height:14px;border-radius:4px;flex-shrink:0}
+        .legend-item .info{flex:1}
+        .legend-item .info .name{font-size:0.9rem;font-weight:600}
+        .legend-item .info .desc{font-size:0.75rem;color:var(--text2)}
+        .legend-item .pct{font-size:1.1rem;font-weight:800;color:var(--gold)}
+
+        /* Projects */
+        .projects{padding:80px 0 100px;background:linear-gradient(180deg,transparent,rgba(124,77,255,0.02),transparent)}
+        .projects-header{text-align:center;margin-bottom:56px}
+        .projects-header .section-sub{margin:0 auto}
+        .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+        .project-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:32px 28px;transition:all var(--t);position:relative;overflow:hidden}
+        .project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--purple));opacity:0;transition:opacity var(--t)}
+        .project-card:hover{transform:translateY(-6px);border-color:rgba(255,215,0,0.2);box-shadow:0 20px 50px rgba(0,0,0,0.4)}
+        .project-card:hover::before{opacity:1}
+        .project-card .status{display:inline-block;font-size:0.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-bottom:14px}
+        .status-live{background:rgba(16,185,129,0.15);color:var(--success)}
+        .status-progress{background:rgba(255,215,0,0.15);color:var(--gold)}
+        .status-planned{background:rgba(107,114,128,0.15);color:var(--text3)}
+        .project-card h3{font-size:1.15rem;font-weight:700;margin-bottom:8px}
+        .project-card p{font-size:0.88rem;color:var(--text2);line-height:1.6;margin-bottom:16px}
+        .project-card .tech{display:flex;flex-wrap:wrap;gap:6px}
+        .project-card .tech span{font-size:0.7rem;font-weight:600;padding:3px 10px;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:20px;color:var(--text2)}
+
+        /* Download */
+        .download-section{padding:60px 0 80px}
+        .download-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r3);padding:48px 56px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+        .download-card::before{content:'';position:absolute;top:-50%;right:-20%;width:400px;height:400px;background:radial-gradient(circle,rgba(255,215,0,0.04),transparent 70%);pointer-events:none}
+        .download-grid{display:grid;grid-template-columns:2fr 1fr;gap:40px;align-items:center;position:relative;z-index:2}
+        .download-info h2{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:8px}
+        .download-info .sub{color:var(--text2);font-size:1rem;margin-bottom:20px}
+        .download-details{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin-bottom:24px}
+        .download-details .item{display:flex;flex-direction:column}
+        .download-details .item .lbl{font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--text3)}
+        .download-details .item .val{font-size:0.95rem;font-weight:600}
+        .download-details .item .val.hash{font-size:0.65rem;font-family:monospace;color:var(--text2)}
+        .download-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+        .download-counter{display:flex;align-items:center;gap:6px;font-size:0.85rem;color:var(--text2)}
+        .download-counter .num{font-weight:700;color:var(--text);font-size:1.1rem}
+        .btn-download-main{position:relative;min-width:200px;justify-content:center}
+        .btn-download-main.loading .btn-text{display:none}
+        .btn-download-main.loading .btn-loader{display:inline-flex}
+        .btn-download-main .btn-loader{display:none;align-items:center;gap:8px}
+        .btn-download-main .btn-loader .spinner{width:20px;height:20px;border:2.5px solid rgba(0,0,0,0.2);border-top-color:#000;border-radius:50%;animation:spin 0.7s linear infinite}
+        @keyframes spin{to{transform:rotate(360deg)}}
+        .btn-download-main.success{background:linear-gradient(135deg,var(--success),#059669);box-shadow:0 8px 30px rgba(16,185,129,0.35)}
+
+        /* Install Guide */
+        .install{padding:80px 0 100px}
+        .install-header{text-align:center;margin-bottom:56px}
+        .install-header .section-sub{margin:0 auto}
+        .install-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;max-width:1000px;margin:0 auto}
+        .install-step{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:28px 24px;text-align:center;transition:all var(--t);position:relative}
+        .install-step:hover{transform:translateY(-4px);border-color:rgba(255,215,0,0.2)}
+        .install-step .step-num{position:absolute;top:-12px;left:50%;transform:translateX(-50%);width:28px;height:28px;border-radius:50%;background:var(--gold);color:#000;font-size:0.75rem;font-weight:800;display:flex;align-items:center;justify-content:center}
+        .install-step .step-icon{width:60px;height:60px;border-radius:50%;background:rgba(255,215,0,0.08);border:1px solid rgba(255,215,0,0.1);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 14px}
+        .install-step h4{font-size:1rem;font-weight:700;margin-bottom:6px}
+        .install-step p{font-size:0.82rem;color:var(--text2);line-height:1.5}
+        .install-step img{width:100%;border-radius:8px;margin-top:12px;border:1px solid var(--border)}
+
+        /* Video */
+        .video-section{padding:60px 0 80px;background:linear-gradient(180deg,transparent,rgba(255,215,0,0.02),transparent)}
+        .video-header{text-align:center;margin-bottom:40px}
+        .video-wrapper{max-width:800px;margin:0 auto;position:relative;border-radius:var(--r3);overflow:hidden;box-shadow:var(--shadow);aspect-ratio:16/9;background:var(--bg2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center}
+        .video-placeholder{text-align:center}
+        .video-placeholder .play-btn{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 16px;cursor:pointer;box-shadow:0 8px 30px rgba(255,215,0,0.4);transition:all var(--t)}
+        .video-placeholder .play-btn:hover{transform:scale(1.1);box-shadow:0 12px 40px rgba(255,215,0,0.6)}
+        .video-placeholder p{color:var(--text2);font-size:0.9rem}
+
+        /* Reviews */
+        .reviews{padding:80px 0 100px}
+        .reviews-header{text-align:center;margin-bottom:56px}
+        .reviews-header .section-sub{margin:0 auto}
+        .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+        .review-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:24px;transition:all var(--t)}
+        .review-card:hover{border-color:rgba(255,215,0,0.2);transform:translateY(-4px)}
+        .review-card .stars{color:var(--gold);font-size:0.9rem;margin-bottom:10px}
+        .review-card .text{font-size:0.9rem;color:var(--text2);line-height:1.6;margin-bottom:14px;font-style:italic}
+        .review-card .author{display:flex;align-items:center;gap:10px}
+        .review-card .author .avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--purple));display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;color:#000}
+        .review-card .author .name{font-size:0.85rem;font-weight:600}
+        .review-card .author .date{font-size:0.7rem;color:var(--text3)}
+
+        /* Changelog */
+        .changelog{padding:60px 0 80px}
+        .changelog-header{text-align:center;margin-bottom:48px}
+        .changelog-list{display:flex;flex-direction:column;gap:14px;max-width:800px;margin:0 auto}
+        .changelog-item{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:20px 28px;display:grid;grid-template-columns:100px 120px 1fr;gap:16px;align-items:center;transition:all var(--t)}
+        .changelog-item:hover{border-color:rgba(255,215,0,0.2)}
+        .changelog-item .version{font-weight:700;color:var(--gold)}
+        .changelog-item .date{font-size:0.8rem;color:var(--text3)}
+        .changelog-item .changes{font-size:0.88rem;color:var(--text2)}
+        .changelog-item .changes li{position:relative;padding-left:16px;list-style:none}
+        .changelog-item .changes li::before{content:'•';position:absolute;left:0;color:var(--gold)}
+
+        /* FAQ */
+        .faq{padding:60px 0 80px}
+        .faq-header{text-align:center;margin-bottom:48px}
+        .faq-list{max-width:740px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+        .faq-item{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;transition:all var(--t)}
+        .faq-item:hover{border-color:rgba(255,215,0,0.15)}
+        .faq-question{width:100%;padding:18px 24px;background:transparent;border:none;color:var(--text);font-family:inherit;font-size:1rem;font-weight:600;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:background var(--t)}
+        .faq-question:hover{background:rgba(255,255,255,0.02)}
+        .faq-question .icon{font-size:1.2rem;transition:transform var(--t);flex-shrink:0;color:var(--text3)}
+        .faq-item.open .faq-question .icon{transform:rotate(180deg);color:var(--gold)}
+        .faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.22,1,0.36,1),padding 0.3s ease;padding:0 24px;color:var(--text2);font-size:0.95rem;line-height:1.7}
+        .faq-item.open .faq-answer{max-height:300px;padding:0 24px 20px}
+
+        /* Footer */
+        .footer{border-top:1px solid var(--border);padding:40px 0 32px;margin-top:20px}
+        .footer-inner{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px}
+        .footer .logo{font-size:1.1rem}
+        .footer-links{display:flex;flex-wrap:wrap;gap:20px}
+        .footer-links a{font-size:0.85rem;color:var(--text2)}
+        .footer-links a:hover{color:var(--text)}
+        .footer-social{display:flex;gap:12px}
+        .footer-social a{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.05);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:0.9rem;transition:all var(--t);color:var(--text2)}
+        .footer-social a:hover{background:rgba(255,215,0,0.12);border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
+        .footer-bottom{text-align:center;margin-top:24px;padding-top:20px;border-top:1px solid var(--border);font-size:0.8rem;color:var(--text3)}
+
+        /* Fade animations - all visible by default */
+        .fade-up,.fade-left{opacity:1!important;transform:none!important}
+
+        /* Responsive */
+        @media(max-width:1024px){
+            .hero-grid{grid-template-columns:1fr;text-align:center}
+            .hero-content{align-items:center}
+            .hero p{max-width:100%}
+            .hero-meta{justify-content:center}
+            .hero-actions{justify-content:center}
+            .download-grid{grid-template-columns:1fr}
+            .download-card{padding:32px 28px}
+            .tokenomics-grid{grid-template-columns:1fr}
+        }
+        @media(max-width:768px){
+            .nav{display:none;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:rgba(10,14,26,0.96);backdrop-filter:blur(16px);padding:20px 24px;gap:6px;border-bottom:1px solid var(--border)}
+            .nav.open{display:flex}
+            .nav a{padding:10px 16px;width:100%}
+            .nav .btn-download-nav{width:100%;justify-content:center}
+            .nav-toggle{display:flex}
+            .mockup-phone{width:200px;height:400px;padding:12px}
+            .mockup-phone .screen{border-radius:20px;padding:14px}
+            .mockup-phone .screen .app-icon{width:54px;height:54px;font-size:1.4rem}
+            .download-details{grid-template-columns:1fr}
+            .download-actions{flex-direction:column;width:100%}
+            .btn-download-main{width:100%}
+            .changelog-item{grid-template-columns:1fr;gap:4px;padding:16px 20px}
+            .footer-inner{flex-direction:column;text-align:center}
+            .footer-links{justify-content:center}
+            .features-grid{grid-template-columns:1fr 1fr}
+            .roadmap-line{left:20px}
+            .roadmap-item,.roadmap-item:nth-child(odd){flex-direction:row;text-align:left}
+            .roadmap-item:nth-child(odd) .roadmap-content,.roadmap-item:nth-child(even) .roadmap-content{margin-left:50px;margin-right:0;width:auto}
+            .roadmap-dot{left:20px}
+        }
+        @media(max-width:480px){
+            .container{padding:0 16px}
+            .hero{padding:40px 0 60px}
+            .features-grid,.install-steps{grid-template-columns:1fr}
+            .download-card{padding:24px 18px}
+            .mockup-phone{width:160px;height:320px;padding:10px}
+            .token-chart{width:220px;height:220px}
+            .token-center{width:100px;height:100px}
+            .token-center .total{font-size:1.1rem}
+        }
+    </style>
+</head>
+<body>
+    <div id="scroll-progress"></div>
+
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('ar')">عربي</button>
+        <button class="lang-btn" onclick="setLang('fr')">FR</button>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span class="logo-icon">ITC</span>
+                <span>ITC Earn</span>
+            </a>
+            <nav class="nav" id="mainNav">
+                <a href="#home" class="active" data-en="Home" data-ar="الرئيسية" data-fr="Accueil">Home</a>
+                <a href="#features" data-en="Features" data-ar="الميزات" data-fr="Fonctionnalités">Features</a>
+                <a href="#roadmap" data-en="Roadmap" data-ar="خارطة الطريق" data-fr="Feuille de route">Roadmap</a>
+                <a href="#tokenomics" data-en="Tokenomics" data-ar="اقتصاديات العملة" data-fr="Tokenomie">Tokenomics</a>
+                <a href="#projects" data-en="Projects" data-ar="المشاريع" data-fr="Projets">Projects</a>
+                <a href="#download" class="btn-download-nav" data-en="Download APK" data-ar="تحميل APK" data-fr="Télécharger APK">Download APK</a>
+            </nav>
+            <button class="nav-toggle" onclick="document.getElementById('mainNav').classList.toggle('open')">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="container hero-grid">
+            <div class="hero-content fade-up">
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    <span data-en="Official Release" data-ar="إصدار رسمي" data-fr="Version officielle">Official Release</span>
+                </div>
+                <h1>
+                    <span data-en="Download" data-ar="حمّل" data-fr="Télécharger">Download</span><br/>
+                    <span class="text-gradient" data-en="ITC Earn" data-ar="ITC Earn" data-fr="ITC Earn">ITC Earn</span><br/>
+                    <span data-en="Official App" data-ar="التطبيق الرسمي" data-fr="Application officielle">Official App</span>
+                </h1>
+                <p data-en="Earn ITC tokens daily through tasks, staking, and investments. Buy and sell ITC with real money." data-ar="اربح عملات ITC يومياً من خلال المهام والاستثمارات والتخزين. اشترِ وبيع ITC بعملة حقيقية." data-fr="Gagnez des jetons ITC quotidiennement via des tâches, le staking et les investissements.">Earn ITC tokens daily through tasks, staking, and investments. Buy and sell ITC with real money.</p>
+                <div class="hero-actions">
+                    <a href="https://github.com/kiki901/itc-earn/releases/download/v1.1.0/ITC-Earn-v1.1.0.apk" class="btn btn-gold" style="text-decoration:none">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        <span data-en="Download APK" data-ar="تحميل APK" data-fr="Télécharger APK">Download APK</span>
+                    </a>
+                    <a href="#install" class="btn btn-outline" data-en="Install Guide →" data-ar="دليل التثبيت →" data-fr="Guide d'installation →">Install Guide →</a>
+                </div>
+                <div class="hero-meta">
+                    <span><span class="label">Version</span> <span class="value">1.1.0</span></span>
+                    <span><span class="label">APK</span> <span class="value">49.1 MB</span></span>
+                    <span><span class="label">Android</span> <span class="value">6.0+</span></span>
+                    <span><span class="label" data-en="Updated" data-ar="آخر تحديث" data-fr="Mis à jour">Updated</span> <span class="value">Jul 21, 2026</span></span>
+                </div>
+            </div>
+            <div class="hero-mockup fade-up">
+                <div class="mockup-glow"></div>
+                <div class="mockup-phone">
+                    <div class="screen">
+                        <div class="app-icon">ITC</div>
+                        <h3>ITC Earn</h3>
+                        <p data-en="Your earning hub" data-ar="منصة الكسب الخاصة بك" data-fr="Votre hub de gains">Your earning hub</p>
+                        <span class="badge-apk">✓ APK Ready</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="features-header fade-up">
+                <span class="tag" data-en="Features" data-ar="الميزات" data-fr="Fonctionnalités">Features</span>
+                <h2 class="section-title"><span data-en="Everything You Need to " data-ar="كل ما تحتاجه لـ " data-fr="Tout ce dont vous avez besoin pour ">Everything You Need to </span><span class="text-gradient" data-en="Earn" data-ar="الكسب" data-fr="Gagner">Earn</span></h2>
+                <p class="section-sub" data-en="Multiple ways to earn, invest, and grow your ITC portfolio." data-ar="طرق متعددة لكسب واستثمار وتنمية محفظة ITC الخاصة بك." data-fr="Plusieurs moyens de gagner, investir et développer votre portefeuille ITC.">Multiple ways to earn, invest, and grow your ITC portfolio.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-up">
+                    <div class="icon">📅</div>
+                    <h3 data-en="Daily Rewards" data-ar="مكافآت يومية" data-fr="Récompenses quotidiennes">Daily Rewards</h3>
+                    <p data-en="Login daily to earn up to 7 ITC. Streak bonuses increase with consecutive days." data-ar="سجّل دخول يومياً لكسب حتى 7 ITC. مكافآت السلسلة تزداد مع الأيام." data-fr="Connectez-vous quotidiennement pour gagner jusqu'à 7 ITC.">Login daily to earn up to 7 ITC. Streak bonuses increase with consecutive days.</p>
+                </div>
+                <div class="feature-card fade-up">
+                    <div class="icon">📋</div>
+                    <h3 data-en="Tasks & Sites" data-ar="المهام والمواقع" data-fr="Tâches et sites">Tasks & Sites</h3>
+                    <p data-en="Complete tasks and visit websites to earn ITC with admin verification." data-ar="أكمل المهام وزُر المواقع لكسب ITC مع تحقق من المدير." data-fr="Complétez des tâches et visitez des sites pour gagner ITC.">Complete tasks and visit websites to earn ITC with admin verification.</p>
+                </div>
+                <div class="feature-card fade-up">
+                    <div class="icon">🎰</div>
+                    <h3 data-en="Lucky Wheel" data-ar="العجلة المحظوظة" data-fr="Roue de la chance">Lucky Wheel</h3>
+                    <p data-en="Spin daily to win up to 50 ITC. Free spin every 24 hours." data-ar="دور العجلة يومياً للفوز بـ 50 ITC. دورة مجانية كل 24 ساعة." data-fr="Tournez quotidiennement pour gagner jusqu'à 50 ITC.">Spin daily to win up to 50 ITC. Free spin every 24 hours.</p>
+                </div>
+                <div class="feature-card fade-up">
+                    <div class="icon">🦁</div>
+                    <h3 data-en="Animal Marketplace" data-ar="سوق الحيوانات" data-fr="Marché des animaux">Animal Marketplace</h3>
+                    <p data-en="Buy animals that generate passive ITC income. Rare animals have unlimited lifespan." data-ar="اشترِ حيوانات تولد دخلاً سلبياً. الحيوانات النادرة بدون حد عمر." data-fr="Achetez des animaux generant un revenu passif ITC.">Buy animals that generate passive ITC income. Rare animals have unlimited lifespan.</p>
+                </div>
+                <div class="feature-card fade-up">
+                    <div class="icon">📈</div>
+                    <h3 data-en="Staking" data-ar="التخزين" data-fr="Staking">Staking</h3>
+                    <p data-en="Stake ITC for 60 days to earn up to 25% ROI. Multiple investment tiers." data-ar="اخزن ITC لمدة 60 يوماً لكسب حتى 25% عائد. خطط استثمار متعددة." data-fr="Stakez vos ITC pendant 60 jours pour gagner jusqu'à 25% de ROI.">Stake ITC for 60 days to earn up to 25% ROI. Multiple investment tiers.</p>
+                </div>
+                <div class="feature-card fade-up">
+                    <div class="icon">💱</div>
+                    <h3 data-en="Buy & Sell ITC" data-ar="شراء وبيع ITC" data-fr="Acheter et vendre ITC">Buy & Sell ITC</h3>
+                    <p data-en="Buy ITC with crypto or local payment methods. Sell for real money with 10% fee." data-ar="اشترِ ITC بعملات مشفرة أو طرق دفع محلية. بيع بعملة حقيقية برسوم 10%." data-fr="Achetez ITC avec crypto ou paiements locaux. Vendez avec frais de 10%.">Buy ITC with crypto or local payment methods. Sell for real money with 10% fee.</p>
+                </div>
+                <div class="feature-card fade-up">
+                    <div class="icon">🌐</div>
+                    <h3 data-en="Multi-Language" data-ar="دعم متعدد اللغات" data-fr="Multi-langues">Multi-Language</h3>
+                    <p data-en="Full support for Arabic, English, and French. Switch instantly." data-ar="دعم كامل للعربية والإنجليزية والفرنسية. تبديل فوري." data-fr="Support complet pour l'arabe, l'anglais et le français.">Full support for Arabic, English, and French. Switch instantly.</p>
+                </div>
+                <div class="feature-card fade-up">
+                    <div class="icon">🎁</div>
+                    <h3 data-en="Referral Program" data-ar="برنامج الإحالة" data-fr="Programme de parrainage">Referral Program</h3>
+                    <p data-en="Earn 5 ITC for each friend you refer. Share your code and earn together." data-ar="اربح 5 ITC لكل صديق تحوله. شارك الكود واكسب معاً." data-fr="Gagnez 5 ITC pour chaque ami parrainé.">Earn 5 ITC for each friend you refer. Share your code and earn together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section class="roadmap" id="roadmap">
+        <div class="container">
+            <div class="roadmap-header fade-up">
+                <span class="tag" data-en="Roadmap" data-ar="خارطة الطريق" data-fr="Feuille de route">Roadmap</span>
+                <h2 class="section-title"><span class="text-gradient" data-en="Project Roadmap" data-ar="خارطة المشروع" data-fr="Feuille de route du projet">Project Roadmap</span></h2>
+                <p class="section-sub" data-en="Our journey from launch to global adoption." data-ar="رحلتنا من الإطلاق إلى التبني العالمي." data-fr="Notre voyage du lancement à l'adoption mondiale.">Our journey from launch to global adoption.</p>
+            </div>
+            <div class="roadmap-timeline">
+                <div class="roadmap-line"></div>
+
+                <div class="roadmap-item fade-up">
+                    <div class="roadmap-dot done"></div>
+                    <div class="roadmap-content">
+                        <h4 data-en="Phase 1 — Launch" data-ar="المرحلة 1 — الإطلاق" data-fr="Phase 1 — Lancement">Phase 1 — Launch</h4>
+                        <div class="date">Q1 2026</div>
+                        <ul>
+                            <li data-en="App launch on Android" data-ar="إطلاق التطبيق على Android" data-fr="Lancement de l'application Android">App launch on Android</li>
+                            <li data-en="Daily rewards system" data-ar="نظام المكافآت اليومية" data-fr="Système de récompenses quotidiennes">Daily rewards system</li>
+                            <li data-en="Tasks & Sites feature" data-ar="ميزة المهام والمواقع" data-fr="Fonctionnalité Tâches et Sites">Tasks & Sites feature</li>
+                            <li data-en="Lucky Wheel" data-ar="العجلة المحظوظة" data-fr="Roue de la chance">Lucky Wheel</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="roadmap-item fade-up">
+                    <div class="roadmap-dot done"></div>
+                    <div class="roadmap-content">
+                        <h4 data-en="Phase 2 — Growth" data-ar="المرحلة 2 — النمو" data-fr="Phase 2 — Croissance">Phase 2 — Growth</h4>
+                        <div class="date">Q2 2026</div>
+                        <ul>
+                            <li data-en="Animal Marketplace launch" data-ar="إطلاق سوق الحيوانات" data-fr="Lancement du marché des animaux">Animal Marketplace launch</li>
+                            <li data-en="Staking plans" data-ar="خطط التخزين" data-fr="Plans de staking">Staking plans</li>
+                            <li data-en="Buy & Sell ITC" data-ar="شراء وبيع ITC" data-fr="Acheter et vendre ITC">Buy & Sell ITC</li>
+                            <li data-en="Referral system" data-ar="نظام الإحالة" data-fr="Système de parrainage">Referral system</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="roadmap-item fade-up">
+                    <div class="roadmap-dot active"></div>
+                    <div class="roadmap-content">
+                        <h4 data-en="Phase 3 — Expansion" data-ar="المرحلة 3 — التوسع" data-fr="Phase 3 — Expansion">Phase 3 — Expansion</h4>
+                        <div class="date">Q3 2026</div>
+                        <ul>
+                            <li data-en="Multi-language support (AR/EN/FR)" data-ar="دعم متعدد اللغات" data-fr="Support multi-langues">Multi-language support (AR/EN/FR)</li>
+                            <li data-en="iOS version" data-ar="إصدار iOS" data-fr="Version iOS">iOS version</li>
+                            <li data-en="Web dashboard for admin" data-ar="لوحة تحكم ويب للمدير" data-fr="Tableau de bord web admin">Web dashboard for admin</li>
+                            <li data-en="Gift box system" data-ar="نظام صناديق الهدايا" data-fr="Système de boîtes cadeaux">Gift box system</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="roadmap-item fade-up">
+                    <div class="roadmap-dot pending"></div>
+                    <div class="roadmap-content">
+                        <h4 data-en="Phase 4 — Ecosystem" data-ar="المرحلة 4 — النظام البيئي" data-fr="Phase 4 — Écosystème">Phase 4 — Ecosystem</h4>
+                        <div class="date">Q4 2026</div>
+                        <ul>
+                            <li data-en="NFT animals integration" data-ar="دمج حيوانات NFT" data-fr="Intégration NFT animaux">NFT animals integration</li>
+                            <li data-en="DeFi staking pools" data-ar="مجمعات التخزين اللامركزي" data-fr="Pools de staking DeFi">DeFi staking pools</li>
+                            <li data-en="Cross-platform sync" data-ar="مزامنة عبر المنصات" data-fr="Synchronisation cross-platform">Cross-platform sync</li>
+                            <li data-en="Partnership with crypto exchanges" data-ar="شراكات مع منصات التبادل" data-fr="Partenariats avec exchanges crypto">Partnership with crypto exchanges</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="roadmap-item fade-up">
+                    <div class="roadmap-dot pending"></div>
+                    <div class="roadmap-content">
+                        <h4 data-en="Phase 5 — Global" data-ar="المرحلة 5 — العالمية" data-fr="Phase 5 — Mondial">Phase 5 — Global</h4>
+                        <div class="date">2027</div>
+                        <ul>
+                            <li data-en="1M+ active users" data-ar="أكثر من مليون مستخدم نشط" data-fr="1M+ utilisateurs actifs">1M+ active users</li>
+                            <li data-en="ITC token listing on exchanges" data-ar="إدراج عملة ITC على منصات التبادل" data-fr="Listage ITC sur les exchanges">ITC token listing on exchanges</li>
+                            <li data-en="Mobile payment integration" data-ar="دمج الدفع عبر الهاتف" data-fr="Intégration paiement mobile">Mobile payment integration</li>
+                            <li data-en="Global merchant network" data-ar="شبكة تجار عالمية" data-fr="Réseau de commerçants mondial">Global merchant network</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOKENOMICS -->
+    <section class="tokenomics" id="tokenomics">
+        <div class="container">
+            <div class="tokenomics-header fade-up">
+                <span class="tag" data-en="Tokenomics" data-ar="اقتصاديات العملة" data-fr="Tokenomie">Tokenomics</span>
+                <h2 class="section-title"><span data-en="ITC " data-ar="عملة " data-fr="Token ">ITC </span><span class="text-gradient" data-en="Tokenomics" data-ar="اقتصاديات" data-fr="Tokenomie">Tokenomics</span></h2>
+                <p class="section-sub" data-en="Transparent token distribution designed for long-term sustainability." data-ar="توزيع شفاف للعملات مصمم للاستدامة طويلة الأمد." data-fr="Distribution transparente conçue pour la durabilité à long terme.">Transparent token distribution designed for long-term sustainability.</p>
+            </div>
+            <div class="tokenomics-grid fade-up">
+                <div style="display:flex;flex-direction:column;align-items:center;gap:20px">
+                    <div class="token-chart">
+                        <div class="token-ring">
+                            <div class="token-center">
+                                <div class="total">10B</div>
+                                <div class="label">Total ITC</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="token-legend">
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background:var(--gold)"></div>
+                        <div class="info">
+                            <div class="name" data-en="Community Rewards" data-ar="مكافآت المجتمع" data-fr="Récompenses communautaires">Community Rewards</div>
+                            <div class="desc" data-en="Tasks, daily login, wheel, gift boxes" data-ar="المهام، تسجيل الدخول، العجلة، الصناديق" data-fr="Tâches, connexion quotidienne, roue, boîtes">Tasks, daily login, wheel, gift boxes</div>
+                        </div>
+                        <div class="pct">35%</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background:var(--purple)"></div>
+                        <div class="info">
+                            <div class="name" data-en="Staking Rewards" data-ar="مكافآت التخزين" data-fr="Récompenses de staking">Staking Rewards</div>
+                            <div class="desc" data-en="ROI for staking participants" data-ar="عائد للمشاركين في التخزين" data-fr="ROI pour les participants au staking">ROI for staking participants</div>
+                        </div>
+                        <div class="pct">15%</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background:var(--success)"></div>
+                        <div class="info">
+                            <div class="name" data-en="Marketplace Liquidity" data-ar="سيولة السوق" data-fr="Liquidité du marché">Marketplace Liquidity</div>
+                            <div class="desc" data-en="Animal shop & trading" data-ar="متجر الحيوانات والتبادل" data-fr="Boutique animaux et trading">Animal shop & trading</div>
+                        </div>
+                        <div class="pct">15%</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background:#3B82F6"></div>
+                        <div class="info">
+                            <div class="name" data-en="Referral Bonuses" data-ar="مكافآت الإحالة" data-fr="Bonus de parrainage">Referral Bonuses</div>
+                            <div class="desc" data-en="5 ITC per referral" data-ar="5 ITC لكل إحالة" data-fr="5 ITC par parrainage">5 ITC per referral</div>
+                        </div>
+                        <div class="pct">15%</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background:#EF4444"></div>
+                        <div class="info">
+                            <div class="name" data-en="Team & Development" data-ar="الفريق والتطوير" data-fr="Équipe et développement">Team & Development</div>
+                            <div class="desc" data-en="Core team & future development" data-ar="الفريق الأساسي والتطوير المستقبلي" data-fr="Équipe principale et développement futur">Core team & future development</div>
+                        </div>
+                        <div class="pct">10%</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background:var(--text3)"></div>
+                        <div class="info">
+                            <div class="name" data-en="Reserve Fund" data-ar="صندوق الاحتياطي" data-fr="Fonds de réserve">Reserve Fund</div>
+                            <div class="desc" data-en="Emergency & partnerships" data-ar="الطوارئ والشراكات" data-fr="Urgences et partenariats">Emergency & partnerships</div>
+                        </div>
+                        <div class="pct">10%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="projects-header fade-up">
+                <span class="tag" data-en="Projects" data-ar="المشاريع" data-fr="Projets">Projects</span>
+                <h2 class="section-title"><span class="text-gradient" data-en="Work Projects" data-ar="مشاريع العمل" data-fr="Projets en cours">Work Projects</span></h2>
+                <p class="section-sub" data-en="The technology behind ITC Earn and our development pipeline." data-ar="التكنولوجيا وراء ITC Earn وقناة تطويرنا." data-fr="La technologie derrière ITC Earn et notre pipeline de développement.">The technology behind ITC Earn and our development pipeline.</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card fade-up">
+                    <span class="status status-live">● Live</span>
+                    <h3 data-en="Mobile App (Flutter)" data-ar="تطبيق الهاتف (Flutter)" data-fr="Application mobile (Flutter)">Mobile App (Flutter)</h3>
+                    <p data-en="Cross-platform Android application built with Flutter. Features Provider state management, SharedPreferences local storage, and SHA-256 security." data-ar="تطبيق Android متعدد المنصات مبني بـ Flutter. إدارة الحالة بـ Provider وتخزين محلي وأمان SHA-256." data-fr="Application Android multiplateforme construite avec Flutter.">Cross-platform Android application built with Flutter. Features Provider state management, SharedPreferences local storage, and SHA-256 security.</p>
+                    <div class="tech"><span>Flutter</span><span>Dart</span><span>Provider</span><span>SHA-256</span></div>
+                </div>
+                <div class="project-card fade-up">
+                    <span class="status status-live">● Live</span>
+                    <h3 data-en="ITC Token Economy" data-ar="اقتصادية عملة ITC" data-fr="Économie token ITC">ITC Token Economy</h3>
+                    <p data-en="Complete in-app economy with buy/sell marketplace, staking, animal marketplace, and daily rewards. Admin-controlled pricing and approvals." data-ar="اقتصاد كامل داخل التطبيق مع سوق شراء/بيع، تخزين، سوق حيوانات، ومكافآت يومية. أسعار وموافقات تحت السيطرة." data-fr="Économie complète avec marketplace, staking, marché d'animaux et récompenses quotidiennes.">Complete in-app economy with buy/sell marketplace, staking, animal marketplace, and daily rewards. Admin-controlled pricing and approvals.</p>
+                    <div class="tech"><span>Provider</span><span>SharedPreferences</span><span>Admin API</span></div>
+                </div>
+                <div class="project-card fade-up">
+                    <span class="status status-progress">● In Progress</span>
+                    <h3 data-en="Web Admin Dashboard" data-ar="لوحة تحكم ويب" data-fr="Tableau de bord web">Web Admin Dashboard</h3>
+                    <p data-en="Web-based admin panel for managing users, tasks, sites, and reviewing submissions. Real-time analytics and user management." data-ar="لوحة تحكم ويب لإدارة المستخدمين والمهام والمواقع ومراجعة الطلبات. تحليلات فورية." data-fr="Panneau d'administration web pour gérer les utilisateurs, tâches et sites.">Web-based admin panel for managing users, tasks, sites, and reviewing submissions. Real-time analytics and user management.</p>
+                    <div class="tech"><span>Next.js</span><span>TypeScript</span><span>API</span></div>
+                </div>
+                <div class="project-card fade-up">
+                    <span class="status status-progress">● In Progress</span>
+                    <h3 data-en="iOS Application" data-ar="تطبيق iOS" data-fr="Application iOS">iOS Application</h3>
+                    <p data-en="Native iOS version of ITC Earn with full feature parity. Planned for Q3 2026 release." data-ar="نسخة iOS أصلية من ITC Earn بجميع الميزات. مقررة للإطلاق في Q3 2026." data-fr="Version iOS native d'ITC Earn avec toutes les fonctionnalités.">Native iOS version of ITC Earn with full feature parity. Planned for Q3 2026 release.</p>
+                    <div class="tech"><span>Swift</span><span>SwiftUI</span><span>iOS 15+</span></div>
+                </div>
+                <div class="project-card fade-up">
+                    <span class="status status-planned">● Planned</span>
+                    <h3 data-en="NFT Animals" data-ar="حيوانات NFT" data-fr="Animaux NFT">NFT Animals</h3>
+                    <p data-en="Blockchain-based unique animals with provable rarity and tradable on secondary markets." data-ar="حيوانات فريدة مبنية على البلوكتشين مع ندرة قابلة للإثبات وقابلة للتبادل." data-fr="Animaux uniques basés sur la blockchain avec rareté prouvable.">Blockchain-based unique animals with provable rarity and tradable on secondary markets.</p>
+                    <div class="tech"><span>Solidity</span><span>ERC-721</span><span>IPFS</span></div>
+                </div>
+                <div class="project-card fade-up">
+                    <span class="status status-planned">● Planned</span>
+                    <h3 data-en="DeFi Integration" data-ar="دمج DeFi" data-fr="Intégration DeFi">DeFi Integration</h3>
+                    <p data-en="Decentralized staking pools, yield farming, and liquidity provision for ITC token holders." data-ar="مجمعات تخزين لامركزية، زراعة العوائد، وتوفير السيولة ل HOLDERS ITC." data-fr="Pools de staking décentralisés, yield farming et liquidité pour les détenteurs ITC.">Decentralized staking pools, yield farming, and liquidity provision for ITC token holders.</p>
+                    <div class="tech"><span>Ethereum</span><span>Smart Contracts</span><span>DeFi</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOWNLOAD -->
+    <section class="download-section" id="download">
+        <div class="container">
+            <div class="download-card fade-up">
+                <div class="download-grid">
+                    <div class="download-info">
+                        <span class="tag" data-en="Download" data-ar="تحميل" data-fr="Téléchargement">Download</span>
+                        <h2><span data-en="Get the " data-ar="حمّل " data-fr="Téléchargez le ">Get the </span><span class="text-gradient" data-en="Official APK" data-ar="APK الرسمي" data-fr="APK officiel">Official APK</span></h2>
+                        <p class="sub" data-en="Direct download. No Google Play required. Verified and secure." data-ar="تحميل مباشر. لا حاجة لـ Google Play. موثّق وآمن." data-fr="Téléchargement direct. Pas besoin de Google Play.">Direct download. No Google Play required. Verified and secure.</p>
+                        <div class="download-details">
+                            <div class="item"><span class="lbl">Version</span><span class="val">1.1.0</span></div>
+                            <div class="item"><span class="lbl" data-en="Release Date" data-ar="تاريخ الإصدار" data-fr="Date de sortie">Release Date</span><span class="val">Jul 21, 2026</span></div>
+                            <div class="item"><span class="lbl">APK Size</span><span class="val">49.1 MB</span></div>
+                            <div class="item"><span class="lbl" data-en="Min Android" data-ar="الحد الأدنى Android" data-fr="Android min">Min Android</span><span class="val">6.0 (Marshmallow)</span></div>
+                            <div class="item" style="grid-column:1/-1"><span class="lbl">SHA256</span><span class="val hash">e2f05fad1c1f66f8d7da5c67f86cddf519a09f3c1b5786483f01a80b32ce6bee</span></div>
+                        </div>
+                        <div class="download-actions">
+                            <a href="https://github.com/kiki901/itc-earn/releases/download/v1.1.0/ITC-Earn-v1.1.0.apk" class="btn btn-gold btn-download-main" id="downloadBtn" style="text-decoration:none">
+                                    <span>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                    Download APK (49.1 MB)
+                                    </span>
+                            </a>
+                            <span class="download-counter">⬇️ <span class="num" id="downloadCount">5,432</span> downloads</span>
+                        </div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center">
+                        <div style="width:80px;height:80px;border-radius:20px;background:linear-gradient(135deg,var(--gold),var(--gold2));display:flex;align-items:center;justify-content:center;font-size:2.5rem;font-weight:900;color:#000;box-shadow:0 12px 40px rgba(255,215,0,0.3)">ITC</div>
+                        <p style="font-weight:600;font-size:1.1rem">Android APK</p>
+                        <p style="font-size:0.8rem;color:var(--text2)" data-en="Verified · Official · Safe" data-ar="موثّق · رسمي · آمن" data-fr="Vérifié · Officiel · Sécurisé">Verified · Official · Safe</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INSTALL GUIDE -->
+    <section class="install" id="install">
+        <div class="container">
+            <div class="install-header fade-up">
+                <span class="tag" data-en="Installation Guide" data-ar="دليل التثبيت" data-fr="Guide d'installation">Installation Guide</span>
+                <h2 class="section-title"><span data-en="How to " data-ar="كيفية " data-fr="Comment ">How to </span><span class="text-gradient" data-en="Install" data-ar="التثبيت" data-fr="Installer">Install</span></h2>
+                <p class="section-sub" data-en="Follow these simple steps to install ITC Earn on your Android device." data-ar="اتبع هذه الخطوات البسيطة لتثبيت ITC Earn على جهاز Android." data-fr="Suivez ces étapes simples pour installer ITC Earn.">Follow these simple steps to install ITC Earn on your Android device.</p>
+            </div>
+            <div class="install-steps">
+                <div class="install-step fade-up">
+                    <div class="step-num">1</div>
+                    <div class="step-icon">⬇️</div>
+                    <h4 data-en="Download APK" data-ar="تحميل APK" data-fr="Télécharger APK">Download APK</h4>
+                    <p data-en="Tap the download button above and save the APK file to your device." data-ar="اضغط زر التحميل أعلاه واحفظ ملف APK على جهازك." data-fr="Appuyez sur le bouton de téléchargement ci-dessus.">Tap the download button above and save the APK file to your device.</p>
+                </div>
+                <div class="install-step fade-up">
+                    <div class="step-num">2</div>
+                    <div class="step-icon">⚙️</div>
+                    <h4 data-en="Enable Unknown Sources" data-ar="تفعيل المصادر غير المعروفة" data-fr="Sources inconnues">Enable Unknown Sources</h4>
+                    <p data-en="Go to Settings → Security → Enable 'Install from unknown sources'." data-ar="اذهب إلى الإعدادات ← الأمان ← فعّل 'التثبيت من مصادر غير معروفة'." data-fr="Allez dans Paramètres → Sécurité → Activez 'Sources inconnues'.">Go to Settings → Security → Enable 'Install from unknown sources'.</p>
+                </div>
+                <div class="install-step fade-up">
+                    <div class="step-num">3</div>
+                    <div class="step-icon">📲</div>
+                    <h4 data-en="Install APK" data-ar="تثبيت APK" data-fr="Installer APK">Install APK</h4>
+                    <p data-en="Open the downloaded APK file and tap 'Install' when prompted." data-ar="افتح ملف APK الذي حمّلته واضغط 'تثبيت' عند الطلب." data-fr="Ouvrez le fichier APK téléchargé et appuyez sur 'Installer'.">Open the downloaded APK file and tap 'Install' when prompted.</p>
+                </div>
+                <div class="install-step fade-up">
+                    <div class="step-num">4</div>
+                    <div class="step-icon">🚀</div>
+                    <h4 data-en="Start Earning!" data-ar="ابدأ الكسب!" data-fr="Commencez à gagner!">Start Earning!</h4>
+                    <p data-en="Open ITC Earn, create your account, and start earning ITC tokens!" data-ar="افتح ITC Earn، أنشئ حسابك، وابدأ لكسب عملات ITC!" data-fr="Ouvrez ITC Earn, créez votre compte et commencez à gagner!">Open ITC Earn, create your account, and start earning ITC tokens!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section class="video-section" id="video">
+        <div class="container">
+            <div class="video-header fade-up">
+                <span class="tag" data-en="Tutorial" data-ar="شرح" data-fr="Tutoriel">Tutorial</span>
+                <h2 class="section-title"><span data-en="Watch How to " data-ar="شاهد كيفية " data-fr="Regardez comment ">Watch How to </span><span class="text-gradient" data-en="Use ITC Earn" data-ar="استخدام ITC Earn" data-fr="utiliser ITC Earn">Use ITC Earn</span></h2>
+            </div>
+            <div class="video-wrapper fade-up">
+                <div class="video-placeholder">
+                    <div class="play-btn">▶</div>
+                    <p data-en="Video tutorial coming soon!" data-ar="فيديو شرح قريباً!" data-fr="Tutoriel vidéo bientôt disponible!">Video tutorial coming soon!</p>
+                    <p style="font-size:0.75rem;color:var(--text3);margin-top:8px" data-en="Subscribe to our YouTube channel for updates" data-ar="اشترك في قناتنا على يوتيوب للحصول على التحديثات" data-fr="Abonnez-vous à notre chaîne YouTube">Subscribe to our YouTube channel for updates</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <div class="reviews-header fade-up">
+                <span class="tag" data-en="Reviews" data-ar="التقييمات" data-fr="Avis">Reviews</span>
+                <h2 class="section-title"><span data-en="What Users " data-ar="ماذا يقول " data-fr="Ce que disent les ">What Users </span><span class="text-gradient" data-en="Say" data-ar="المستخدمون" data-fr="utilisateurs">Say</span></h2>
+                <p class="section-sub" data-en="Real feedback from our community of earners." data-ar="تعليقات حقيقية من مجتمع الكسبers." data-fr="Vrais retours de notre communauté de gagnants.">Real feedback from our community of earners.</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card fade-up">
+                    <div class="stars">★★★★★</div>
+                    <div class="text" data-en="'Great app! I earn daily ITC and the staking returns are amazing. The animal marketplace is so fun.'" data-ar="'تطبيق رائع! أكسب ITC يومياً وعوائد التخزين مذهلة. سوق الحيوانات ممتع جداً.'" data-fr="'Super application! Je gagne des ITC quotidiennement et les rendements du staking sont incroyables.'">"Great app! I earn daily ITC and the staking returns are amazing. The animal marketplace is so fun."</div>
+                    <div class="author"><div class="avatar">A</div><div><div class="name">Ahmed M.</div><div class="date">Jul 2026</div></div></div>
+                </div>
+                <div class="review-card fade-up">
+                    <div class="stars">★★★★★</div>
+                    <div class="text" data-en="'The buy and sell feature is perfect. I sold my ITC earnings and received real money. Admin is very responsive.'" data-ar="'ميزة الشراء والبيع مثالية. بعت أرباح ITC وحصلت على عملة حقيقية. المدير متجاوب جداً.'" data-fr="'La fonctionnalité achat/vente est parfaite. J'ai vendu mes gains ITC et reçu de l'argent réel.'">"The buy and sell feature is perfect. I sold my ITC earnings and received real money. Admin is very responsive."</div>
+                    <div class="author"><div class="avatar">S</div><div><div class="name">Sara K.</div><div class="date">Jul 2026</div></div></div>
+                </div>
+                <div class="review-card fade-up">
+                    <div class="stars">★★★★☆</div>
+                    <div class="text" data-en="'Love the multi-language support! Arabic interface is smooth. The lucky wheel is addictive.'" data-ar="'أحب دعم اللغات المتعددة! الواجهة العربية سلسة. العجلة المحظوظة إدمانية.'" data-fr="'J'adore le support multilingue! L'interface arabe est fluide.'">"Love the multi-language support! Arabic interface is smooth. The lucky wheel is addictive."</div>
+                    <div class="author"><div class="avatar">Y</div><div><div class="name">Youssef B.</div><div class="date">Jun 2026</div></div></div>
+                </div>
+                <div class="review-card fade-up">
+                    <div class="stars">★★★★★</div>
+                    <div class="text" data-en="'Best earning app I have tried. The referral system helps me earn extra ITC every day.'" data-ar="' أفضل تطبيق كسب جربته. نظام الإحالة يساعدني لكسب ITC إضافية كل يوم.'" data-fr="'La meilleure application de gains que j'ai essayée. Le système de parrainage est génial.'">"Best earning app I have tried. The referral system helps me earn extra ITC every day."</div>
+                    <div class="author"><div class="avatar">M</div><div><div class="name">Mohamed A.</div><div class="date">Jun 2026</div></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHANGELOG -->
+    <section class="changelog" id="updates">
+        <div class="container">
+            <div class="changelog-header fade-up">
+                <span class="tag" data-en="Changelog" data-ar="سجل التغييرات" data-fr="Journal des modifications">Changelog</span>
+                <h2 class="section-title"><span class="text-gradient" data-en="Version History" data-ar="سجل الإصدارات" data-fr="Historique des versions">Version History</span></h2>
+            </div>
+            <div class="changelog-list">
+                <div class="changelog-item fade-up">
+                    <span class="version">v1.1.0</span>
+                    <span class="date">Jul 21, 2026</span>
+                    <div class="changes"><ul>
+                        <li data-en="Minimum withdrawal $20 (1000 ITC)" data-ar="الحد الأدنى للسحب 20 دولار (1000 ITC)" data-fr="Retrait minimum 20$ (1000 ITC)">Minimum withdrawal $20 (1000 ITC)</li>
+                        <li data-en="10% sell fee" data-ar="رسوم البيع 10%" data-fr="Frais de vente 10%">10% sell fee</li>
+                        <li data-en="Sell button disabled until 1000 ITC" data-ar="زر البيع معطل حتى 1000 ITC" data-fr="Bouton de vente désactivé jusqu'à 1000 ITC">Sell button disabled until 1000 ITC</li>
+                        <li data-en="Improved data persistence" data-ar="تحسين حفظ البيانات" data-fr="Amélioration de la persistance des données">Improved data persistence</li>
+                    </ul></div>
+                </div>
+                <div class="changelog-item fade-up">
+                    <span class="version">v1.0.0</span>
+                    <span class="date">Jul 3, 2026</span>
+                    <div class="changes"><ul>
+                        <li data-en="Initial release" data-ar="الإصدار الأول" data-fr="Version initiale">Initial release</li>
+                        <li data-en="Daily rewards, tasks, lucky wheel" data-ar="مكافآت يومية، مهام، عجلة محظوظة" data-fr="Récompenses quotidiennes, tâches, roue">Daily rewards, tasks, lucky wheel</li>
+                        <li data-en="Animal marketplace & staking" data-ar="سوق الحيوانات والتخزين" data-fr="Marché d'animaux et staking">Animal marketplace & staking</li>
+                        <li data-en="Buy & sell ITC" data-ar="شراء وبيع ITC" data-fr="Acheter et vendre ITC">Buy & sell ITC</li>
+                        <li data-en="3 languages: AR/EN/FR" data-ar="3 لغات: عربي/إنجليزي/فرنسي" data-fr="3 langues: AR/EN/FR">3 languages: AR/EN/FR</li>
+                    </ul></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="support">
+        <div class="container">
+            <div class="faq-header fade-up">
+                <span class="tag" data-en="FAQ" data-ar="الأسئلة الشائعة" data-fr="FAQ">FAQ</span>
+                <h2 class="section-title"><span data-en="Frequently Asked " data-ar="الأسئلة " data-fr="Questions ">Frequently Asked </span><span class="text-gradient" data-en="Questions" data-ar="الشائعة" data-fr="fréquentes">Questions</span></h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>Is the ITC Earn APK safe to install?</span>
+                        <span class="icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        Yes. ITC Earn is signed with our official developer certificate. You can verify the SHA256 hash on this page before installation. We never collect personal data without your consent.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>How do I update the app?</span>
+                        <span class="icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        Simply download the latest APK from this page and install it over the existing version. Your data and ITC balance will remain intact.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>Does ITC Earn require Google Play?</span>
+                        <span class="icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        No. ITC Earn is distributed as a standalone APK. You do not need Google Play Services to run the app.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>How can I earn ITC tokens?</span>
+                        <span class="icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        There are multiple ways: daily login rewards, completing tasks, visiting sites, spinning the lucky wheel, buying animals that generate income, and staking your ITC.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <span>How do I sell my ITC for real money?</span>
+                        <span class="icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        Go to Buy & Sell ITC, select 'Sell', enter the amount (minimum 1000 ITC), choose your payment method, and submit the request. The admin will review and approve it. You'll receive the USD equivalent minus 10% fee.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <a href="#" class="logo">
+                    <span class="logo-icon">ITC</span>
+                    <span>ITC Earn</span>
+                </a>
+                <div class="footer-links">
+                    <a href="#download" data-en="Download" data-ar="تحميل" data-fr="Télécharger">Download</a>
+                    <a href="#updates" data-en="Updates" data-ar="التحديثات" data-fr="Mises à jour">Updates</a>
+                    <a href="#support" data-en="Support" data-ar="الدعم" data-fr="Support">Support</a>
+                    <a href="privacy.html" data-en="Privacy" data-ar="الخصوصية" data-fr="Confidentialité">Privacy</a>
+                    <a href="terms.html" data-en="Terms" data-ar="الشروط" data-fr="Conditions">Terms</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://t.me/itcearn" aria-label="Telegram" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></a>
+                    <a href="https://youtube.com/@itcearn" aria-label="YouTube" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+                    <a href="https://github.com/kiki901/itc-earn" aria-label="GitHub" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+                    <a href="https://x.com/itcearn" aria-label="Twitter/X" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg></a>
+                    <a href="https://facebook.com/itcearn" aria-label="Facebook" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                </div>
+            </div>
+            <div class="footer-bottom">&copy; 2026 ITC Earn. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+    (function(){
+        'use strict';
+        const $=(s,c=document)=>c.querySelector(s);
+        const $$=(s,c=document)=>Array.from(c.querySelectorAll(s));
+
+        // Scroll Progress
+        const pb=$('#scroll-progress');
+        if(pb) window.addEventListener('scroll',()=>{const t=window.scrollY;const d=document.documentElement.scrollHeight-window.innerHeight;pb.style.width=(d>0?(t/d)*100:0)+'%';},{passive:true});
+
+        // FAQ handled via inline onclick
+
+        // Download handled via direct <a> links
+
+        // Smooth scroll
+        $$('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=this.getAttribute('href');if(t==='#'||t.length<2)return;var el=document.querySelector(t);if(el){e.preventDefault();window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-80,behavior:'smooth'})}})});
+
+        // Fade-up observer - make visible immediately
+        $$('.fade-up').forEach(el=>{el.style.opacity='1';el.style.transform='none'});
+
+        // Active nav
+        const secs=$$('section[id]');const links=$$('.nav a:not(.btn-download-nav)');
+        function updateNav(){let c='';const sp=window.scrollY+120;secs.forEach(s=>{if(sp>=s.offsetTop&&sp<s.offsetTop+s.offsetHeight)c=s.id});links.forEach(l=>{l.classList.remove('active');if(l.getAttribute('href')==='#'+c)l.classList.add('active')})}
+        window.addEventListener('scroll',updateNav,{passive:true});
+
+        // Language Toggle
+        window.setLang=function(lang){
+            $$('.lang-btn').forEach(b=>b.classList.remove('active'));
+            document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+            document.documentElement.lang=lang;
+            document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+            $$('[data-'+lang+']').forEach(el=>{if(el.dataset[lang])el.textContent=el.dataset[lang]});
+        };
+
+        // Reduced motion - all visible
+        $$('.fade-up').forEach(el=>{el.style.opacity='1';el.style.transform='none'});
+    })();
+    </script>
+</body>
+</html>
