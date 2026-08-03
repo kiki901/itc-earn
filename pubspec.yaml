@@ -39,6 +39,9 @@ dependencies:
   # ─── Crypto Hashing ───
   crypto: ^3.0.3
 
+  # ─── HTTP Client ───
+  http: ^1.2.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
